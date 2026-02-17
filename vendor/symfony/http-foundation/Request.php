@@ -285,30 +285,26 @@ class Request
      */
     public static function createFromGlobals(): static
     {
-        if (!\in_array($_SERVER['REQUEST_METHOD'] ?? null, ['PUT', 'DELETE', 'PATCH', 'QUERY'], true)) {
-            return self::createRequestFromFactory($_GET, $_POST, [], $_COOKIE, $_FILES, $_SERVER);
+        $request = self::createRequestFromFactory($_GET, $_POST, [], $_COOKIE, $_FILES, $_SERVER);
+
+        if (!\in_array($request->server->get('REQUEST_METHOD', 'GET'), ['PUT', 'DELETE', 'PATCH', 'QUERY'], true)) {
+            return $request;
         }
 
-        if (\PHP_VERSION_ID < 80400) {
-            if (!isset($_SERVER['CONTENT_TYPE']) || str_starts_with($_SERVER['CONTENT_TYPE'], 'application/x-www-form-urlencoded')) {
-                $content = file_get_contents('php://input');
-                parse_str($content, $post);
-            } else {
-                $content = null;
-                $post = $_POST;
+        if (\PHP_VERSION_ID >= 80400) {
+            try {
+                [$post, $files] = request_parse_body();
+
+                $request->request->add($post);
+                $request->files->add($files);
+            } catch (\RequestParseBodyException) {
             }
-
-            return self::createRequestFromFactory($_GET, $post, [], $_COOKIE, $_FILES, $_SERVER, $content);
+        } elseif (str_starts_with($request->headers->get('CONTENT_TYPE', ''), 'application/x-www-form-urlencoded')) {
+            parse_str($request->getContent(), $data);
+            $request->request = new InputBag($data);
         }
 
-        try {
-            [$post, $files] = request_parse_body();
-        } catch (\RequestParseBodyException) {
-            $post = $_POST;
-            $files = $_FILES;
-        }
-
-        return self::createRequestFromFactory($_GET, $post, [], $_COOKIE, $files, $_SERVER);
+        return $request;
     }
 
     /**
@@ -876,7 +872,7 @@ class Request
      *
      * Suppose this request is instantiated from /mysite on localhost:
      *
-     *  * http://localhost/mysite              returns '/'
+     *  * http://localhost/mysite              returns an empty string
      *  * http://localhost/mysite/about        returns '/about'
      *  * http://localhost/mysite/enco%20ded   returns '/enco%20ded'
      *  * http://localhost/mysite/about?var=1  returns '/about'
@@ -1542,8 +1538,10 @@ class Request
      */
     public function getContent(bool $asResource = false)
     {
-        if ($asResource) {
-            if (\is_resource($this->content)) {
+        $currentContentIsResource = \is_resource($this->content);
+
+        if (true === $asResource) {
+            if ($currentContentIsResource) {
                 rewind($this->content);
 
                 return $this->content;
@@ -1563,7 +1561,7 @@ class Request
             return fopen('php://input', 'r');
         }
 
-        if (\is_resource($this->content)) {
+        if ($currentContentIsResource) {
             rewind($this->content);
 
             return stream_get_contents($this->content);

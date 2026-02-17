@@ -2756,7 +2756,7 @@ trait ValidatesAttributes
      *
      * @param  string  $attribute
      * @param  mixed  $value
-     * @return int|string
+     * @return int|float|string
      */
     protected function getSize($attribute, $value)
     {
@@ -2767,11 +2767,11 @@ trait ValidatesAttributes
         // is the size. If it is a file, we take kilobytes, and for a string the
         // entire length of the string will be considered the attribute size.
         if (is_numeric($value) && $hasNumeric) {
-            return (string) $this->ensureExponentWithinAllowedRange($attribute, $this->trim($value));
+            return $this->ensureExponentWithinAllowedRange($attribute, $this->trim($value));
         } elseif (is_array($value)) {
             return count($value);
         } elseif ($value instanceof File) {
-            return (string) ($value->getSize() / 1024);
+            return $value->getSize() / 1024;
         }
 
         return mb_strlen($value ?? '');
@@ -2878,11 +2878,11 @@ trait ValidatesAttributes
      * Trim the value if it is a string.
      *
      * @param  mixed  $value
-     * @return string
+     * @return mixed
      */
     protected function trim($value)
     {
-        return is_string($value) ? trim($value) : (string) $value;
+        return is_string($value) ? trim($value) : $value;
     }
 
     /**

@@ -9,8 +9,6 @@ use Illuminate\Contracts\Cache\Store;
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Support\Arr;
 use InvalidArgumentException;
-use Mockery;
-use Mockery\LegacyMockInterface;
 
 /**
  * @mixin \Illuminate\Cache\Repository
@@ -57,7 +55,7 @@ class CacheManager implements FactoryContract
      */
     public function store($name = null)
     {
-        $name = $name ?? $this->getDefaultDriver();
+        $name = $name ?: $this->getDefaultDriver();
 
         return $this->stores[$name] ??= $this->resolve($name);
     }
@@ -81,19 +79,11 @@ class CacheManager implements FactoryContract
      */
     public function memo($driver = null)
     {
-        $driver = $driver ?? $this->getDefaultDriver();
+        $driver = $driver ?: $this->getDefaultDriver();
 
-        $bindingKey = "cache.__memoized:{$driver}";
-
-        $isSpy = isset($this->app['cache']) && $this->app['cache'] instanceof LegacyMockInterface;
-
-        $this->app->scopedIf($bindingKey, function () use ($driver, $isSpy) {
-            $repository = $this->repository(
-                new MemoizedStore($driver, $this->store($driver)), ['events' => false]
-            );
-
-            return $isSpy ? Mockery::spy($repository) : $repository;
-        });
+        $this->app->scopedIf($bindingKey = "cache.__memoized:{$driver}", fn () => $this->repository(
+            new MemoizedStore($driver, $this->store($driver)), ['events' => false]
+        ));
 
         return $this->app->make($bindingKey);
     }
@@ -430,9 +420,11 @@ class CacheManager implements FactoryContract
      */
     protected function getConfig($name)
     {
-        return $name !== 'null'
-            ? $this->app['config']["cache.stores.{$name}"]
-            : ['driver' => 'null'];
+        if (! is_null($name) && $name !== 'null') {
+            return $this->app['config']["cache.stores.{$name}"];
+        }
+
+        return ['driver' => 'null'];
     }
 
     /**
@@ -442,7 +434,7 @@ class CacheManager implements FactoryContract
      */
     public function getDefaultDriver()
     {
-        return $this->app['config']['cache.default'] ?? 'null';
+        return $this->app['config']['cache.default'];
     }
 
     /**

@@ -1,16 +1,9 @@
 <?php return array (
-  'inertiajs/inertia-laravel' => 
+  'laravel/breeze' => 
   array (
     'providers' => 
     array (
-      0 => 'Inertia\\ServiceProvider',
-    ),
-  ),
-  'laravel/fortify' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Laravel\\Fortify\\FortifyServiceProvider',
+      0 => 'Laravel\\Breeze\\BreezeServiceProvider',
     ),
   ),
   'laravel/pail' => 
@@ -32,13 +25,6 @@
     'providers' => 
     array (
       0 => 'Laravel\\Tinker\\TinkerServiceProvider',
-    ),
-  ),
-  'laravel/wayfinder' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Laravel\\Wayfinder\\WayfinderServiceProvider',
     ),
   ),
   'nesbot/carbon' => 

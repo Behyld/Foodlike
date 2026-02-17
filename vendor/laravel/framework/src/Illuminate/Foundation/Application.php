@@ -45,7 +45,7 @@ class Application extends Container implements ApplicationContract, CachesConfig
      *
      * @var string
      */
-    const VERSION = '12.50.0';
+    const VERSION = '12.41.1';
 
     /**
      * The base path for the Laravel installation.
@@ -1595,13 +1595,11 @@ class Application extends Container implements ApplicationContract, CachesConfig
      */
     public function setLocale($locale)
     {
-        $previous = $this['config']->get('app.locale');
-
         $this['config']->set('app.locale', $locale);
 
         $this['translator']->setLocale($locale);
 
-        $this['events']->dispatch(new LocaleUpdated($locale, $previous));
+        $this['events']->dispatch(new LocaleUpdated($locale));
     }
 
     /**

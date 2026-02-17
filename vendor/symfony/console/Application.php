@@ -746,14 +746,15 @@ class Application implements ResetInterface
             $message = \sprintf('Command "%s" is not defined.', $name);
 
             if ($alternatives = $this->findAlternatives($name, $allCommands)) {
-                $wantHelps = $this->wantHelps;
-                $this->wantHelps = false;
-
                 // remove hidden commands
-                if ($alternatives = array_filter($alternatives, fn ($name) => !$this->get($name)->isHidden())) {
-                    $message .= \sprintf("\n\nDid you mean %s?\n    %s", 1 === \count($alternatives) ? 'this' : 'one of these', implode("\n    ", $alternatives));
+                $alternatives = array_filter($alternatives, fn ($name) => !$this->get($name)->isHidden());
+
+                if (1 == \count($alternatives)) {
+                    $message .= "\n\nDid you mean this?\n    ";
+                } else {
+                    $message .= "\n\nDid you mean one of these?\n    ";
                 }
-                $this->wantHelps = $wantHelps;
+                $message .= implode("\n    ", $alternatives);
             }
 
             throw new CommandNotFoundException($message, array_values($alternatives));

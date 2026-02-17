@@ -13,23 +13,24 @@ use function assert;
 use function phpversion;
 use DateTimeImmutable;
 use DOMElement;
-use SebastianBergmann\CodeCoverage\CodeCoverage;
 use SebastianBergmann\Environment\Runtime;
 
 /**
  * @internal This class is not covered by the backward compatibility promise for phpunit/php-code-coverage
  */
-final class BuildInformation
+final readonly class BuildInformation
 {
-    private readonly DOMElement $contextNode;
+    private DOMElement $contextNode;
 
-    public function __construct(DOMElement $contextNode)
-    {
+    public function __construct(
+        DOMElement $contextNode,
+        Runtime $runtime,
+        DateTimeImmutable $buildDate,
+        string $phpUnitVersion,
+        string $coverageVersion
+    ) {
         $this->contextNode = $contextNode;
-    }
 
-    public function setRuntimeInformation(Runtime $runtime, CodeCoverage $coverage): void
-    {
         $runtimeNode = $this->nodeByName('runtime');
 
         $runtimeNode->setAttribute('name', $runtime->getName());
@@ -38,41 +39,30 @@ final class BuildInformation
 
         $driverNode = $this->nodeByName('driver');
 
-        if ($coverage->driverIsPcov()) {
-            $driverNode->setAttribute('name', 'pcov');
-            $driverNode->setAttribute('version', phpversion('pcov'));
-        } elseif ($coverage->driverIsXdebug()) {
+        if ($runtime->hasXdebug()) {
             $driverNode->setAttribute('name', 'xdebug');
             $driverNode->setAttribute('version', phpversion('xdebug'));
         }
-    }
 
-    public function setBuildTime(DateTimeImmutable $date): void
-    {
-        $this->contextNode->setAttribute('time', $date->format('D M j G:i:s T Y'));
-    }
+        if ($runtime->hasPCOV()) {
+            $driverNode->setAttribute('name', 'pcov');
+            $driverNode->setAttribute('version', phpversion('pcov'));
+        }
 
-    public function setGeneratorVersions(string $phpUnitVersion, string $coverageVersion): void
-    {
+        $this->contextNode->setAttribute('time', $buildDate->format('D M j G:i:s T Y'));
+
         $this->contextNode->setAttribute('phpunit', $phpUnitVersion);
         $this->contextNode->setAttribute('coverage', $coverageVersion);
     }
 
     private function nodeByName(string $name): DOMElement
     {
-        $node = $this->contextNode->getElementsByTagNameNS(
-            'https://schema.phpunit.de/coverage/1.0',
-            $name,
-        )->item(0);
-
-        if (!$node) {
-            $node = $this->contextNode->appendChild(
-                $this->contextNode->ownerDocument->createElementNS(
-                    'https://schema.phpunit.de/coverage/1.0',
-                    $name,
-                ),
-            );
-        }
+        $node = $this->contextNode->appendChild(
+            $this->contextNode->ownerDocument->createElementNS(
+                Facade::XML_NAMESPACE,
+                $name,
+            ),
+        );
 
         assert($node instanceof DOMElement);
 

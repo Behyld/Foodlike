@@ -120,12 +120,6 @@ class Command implements SignalableCommandInterface
                 $name = array_shift($aliases);
             }
 
-            // we must not overwrite existing aliases, combine new ones with existing ones
-            $aliases = array_unique([
-                ...$this->aliases,
-                ...$aliases,
-            ]);
-
             $this->setAliases($aliases);
         }
 

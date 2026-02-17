@@ -11,7 +11,6 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\Eloquent\Relations\Concerns\InteractsWithDictionary;
 use Illuminate\Database\Query\Grammars\MySqlGrammar;
 use Illuminate\Database\UniqueConstraintViolationException;
-use Illuminate\Support\Arr;
 
 /**
  * @template TRelatedModel of \Illuminate\Database\Eloquent\Model
@@ -178,23 +177,17 @@ abstract class HasOneOrManyThrough extends Relation
      * Build model dictionary keyed by the relation's foreign key.
      *
      * @param  \Illuminate\Database\Eloquent\Collection<int, TRelatedModel>  $results
-     * @return array<array<array-key, TRelatedModel>>
+     * @return array<array<TRelatedModel>>
      */
     protected function buildDictionary(EloquentCollection $results)
     {
         $dictionary = [];
 
-        $isAssociative = Arr::isAssoc($results->all());
-
         // First we will create a dictionary of models keyed by the foreign key of the
         // relationship as this will allow us to quickly access all of the related
         // models without having to do nested looping which will be quite slow.
-        foreach ($results as $key => $result) {
-            if ($isAssociative) {
-                $dictionary[$result->laravel_through_key][$key] = $result;
-            } else {
-                $dictionary[$result->laravel_through_key][] = $result;
-            }
+        foreach ($results as $result) {
+            $dictionary[$result->laravel_through_key][] = $result;
         }
 
         return $dictionary;
