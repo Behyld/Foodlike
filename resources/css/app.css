@@ -7,5 +7,16 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+    background-color: #fbf8f8;
+    color: black;
+}
 
+footer{
+      margin-top: auto;
+}
 
+.second{
+   height: 843px;
+   background-color: #fbf8f8;
+}

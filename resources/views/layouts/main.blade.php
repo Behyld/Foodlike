@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'images/bg.png'])
 </head>
 <body>
         <main>
-            <img src="C:\Users\celer\Downloads\Bg.png">
+            <div style="background-image: url('/images/Bg.png');
+                    height: 917px">
+    Текст
+</div>
+            <div class="second">
+                
+            </div>
         </main>
         <footer>
             Подвал
