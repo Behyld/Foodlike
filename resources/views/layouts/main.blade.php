@@ -8,16 +8,13 @@
 </head>
 <body>
         <main>
-            <div style="background-image: url('/images/Bg.png');
-                    height: 917px">
-    Текст
-</div>
-            <div class="second">
-                
+            <div style="background-image: url('/images/back.png');
+                    height: 1000px">
+             @include('layouts.navigation')
+             @include('layouts.block')
+             @include('layouts.menu')
+             @include('layouts.fullmenu')
             </div>
         </main>
-        <footer>
-            Подвал
-        </footer>
 </body>
 </html>
