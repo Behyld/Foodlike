@@ -14,6 +14,7 @@
              @include('layouts.block')
              @include('layouts.menu')
              @include('layouts.fullmenu')
+             @include('layouts.about')
             </div>
         </main>
 </body>

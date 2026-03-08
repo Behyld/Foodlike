@@ -22,8 +22,8 @@
                     <div class="flex items-center mb-2">
                         <p class="mt-[-34px] w-28">Подробнее   ></p>
                         <div class="mt-10 ml-7 flex-shrink-0">
-                            <img src="{{ asset('/images/leftButton.png') }}" alt="левая стрелка" class="slider-arrow inline-block dish-left-arrow">
-                            <img src="{{ asset('/images/rightButton.png') }}" alt="правая стрелка" class="slider-arrow inline-block ml-2 dish-right-arrow">
+                           <img src="{{ asset('/images/leftButton.png') }}" alt="левая стрелка" id="sliderLeftChangeFullMenuButton" class="slider-arrow inline-block dish-left-arrow">
+<img src="{{ asset('/images/rightButton.png') }}" alt="правая стрелка" id="sliderRightChangeFullMenuButton" class="slider-arrow inline-block ml-2 dish-right-arrow">
                         </div>
                     </div>
                 </div>
@@ -35,90 +35,9 @@
             <img id="sliderImage" src="{{ asset('/images/slider1.png') }}" alt="слайдер" class="absolute ml-[500px] mt-[-640px] z-10">
         </div>
         <!-- Оранжевый декор -->
-        <div class="absolute bg-[#EE7700] w-[637px] h-[843px] ml-[1268px] mt-[-700px] rounded-bl-[88px] z-0"></div>
+        <div class="absolute bg-[#EE7700] w-[637px] h-[843px] ml-[1268px] mt-[-662px] rounded-bl-[88px] z-0"></div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Данные блюд
-            const slides = [
-                {
-                    image: "{{ asset('/images/teriyakiChicken.png') }}",
-                    title: 'Курица в соусе терияки',
-                    desc: 'куриная грудка, сыр, шампиньоны, майонез',
-                    price: '280₽'
-                },
-                {
-                    image: "{{ asset('/images/pumpkinCreamSoup.png') }}",
-                    title: 'Тыквенный крем-суп',
-                    desc: 'куриная грудка, сыр, шампиньоны, майонез',
-                    price: '280₽'
-                },
-                {
-                    image: "{{ asset('/images/salad.png') }}",
-                    title: 'Салат летний',
-                    desc: 'куриная грудка, сыр, шампиньоны, майонез',
-                    price: '280₽'
-                }
-            ];
-
-            // Данные для картинок слайдера
-            const slider = [
-                { image: "{{ asset('/images/slider1.png') }}" },
-                { image: "{{ asset('/images/slider2.png') }}" },
-                { image: "{{ asset('/images/slider3.png') }}" }
-            ];
-
-            let currentSlide = 0;
-            const totalSlides = slides.length;
-
-            // Элементы
-            const img = document.getElementById('dishImage');
-            const title = document.getElementById('dishTitle');
-            const desc = document.getElementById('dishDesc');
-            const price = document.getElementById('dishPrice');
-            const sliderImg = document.getElementById('sliderImage');
-
-            // Находим карточку
-            const card = document.getElementById('dishCard');
-            if (!card) {
-                console.error('Карточка не найдена');
-                return;
-            }
-
-            // Ищем стрелки внутри карточки
-            const leftBtn = card.querySelector('.dish-left-arrow');
-            const rightBtn = card.querySelector('.dish-right-arrow');
-
-            if (!img || !title || !desc || !price || !leftBtn || !rightBtn || !sliderImg) {
-                console.error('Не найдены элементы внутри карточки');
-                return;
-            }
-
-            function updateSlide(index) {
-                const slide = slides[index];
-                img.src = slide.image;
-                title.textContent = slide.title;
-                desc.textContent = slide.desc;
-                price.textContent = slide.price;
-                // Обновляем картинку слайдера
-                sliderImg.src = slider[index].image;
-            }
-
-            // Бесконечная карусель
-            leftBtn.addEventListener('click', function() {
-                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                updateSlide(currentSlide);
-            });
-
-            rightBtn.addEventListener('click', function() {
-                currentSlide = (currentSlide + 1) % totalSlides;
-                updateSlide(currentSlide);
-            });
-
-            // Инициализация
-            updateSlide(0);
-        });
-    </script>
+    @vite('resources/js/menu.js')
 </body>
 </html>
