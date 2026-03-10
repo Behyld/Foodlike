@@ -7,42 +7,48 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="font-sans m-0 p-0">
-    <section class="bg-gray-100 py-12 md:py-16 relative">
+    <section class="bg-[#fbf8f8] py-12 md:py-16 relative">
         <div class="max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row gap-8 md:gap-12">
             <!-- Заголовок слева -->
             <div class="md:w-1/2 text-left">
-                <h2 class="text-3xl md:text-4xl text-gray-800 mb-2 leading-tight">Нашим клиентам нравится<br>то, что мы делаем</h2>
+                <h2 class="text-3xl md:text-4xl mb-2 leading-tight font-bold">Нашим клиентам нравится<br>то, что мы делаем</h2>
                 <p class="text-lg text-gray-600 mb-5">Для нас важно любое ваше мнение!</p>
-                <a href="#" class="text-gray-600 no-underline text-base hover:underline">Все отзывы</a>
+                <a href="#" class="font-bold no-underline text-base hover:underline">Все отзывы    ></a>
             </div>
             
             <!-- Список отзывов справа -->
             <div class="md:w-1/2">
                 <div class="flex flex-col gap-5">
                     <!-- Первый отзыв -->
-                    <div class="flex bg-white p-6 rounded-xl shadow-md transition-transform duration-300 hover:scale-105 relative ml-12 md:ml-16">
-                         <img src="{{ asset('/images/Ava1.png') }}" alt="Аватарка" class="w-16 h-16 md:w-20 md:h-20 rounded-full absolute -left-8 md:-left-10 top-5">
+                    <div class="h-[162px] flex bg-white p-6 shadow-md transition-transform duration-300 hover:scale-105 relative ml-12 md:ml-16 rounded-tr-[22px] rounded-br-[22px] rounded-bl-[22px]">
+                         <img src="{{ asset('/images/Ava1.png') }}" alt="Аватарка" class="w-[91px] h-[91px] md:w-20 md:h-20 rounded-full absolute -left-8 md:-left-10 top-5">
                         <div class="flex-1 pl-5 md:pl-8">
-                            <img src="{{ asset('/images/Symbol.png') }}" alt="Quote" class="w-5 h-5 mb-4">
-                            <p class="text-gray-800 text-base leading-relaxed">Конструктивный, всегда свежие продукты, оперативно, вежливый, исполнительный курьер, работают просто фантастически.</p>
+                            <p class="text-gray-800 text-base leading-relaxed">Качественные, всегда свежие продукты, оперативная доставка, вежливый, исполнительный курьер, работает просто фантастически</p>
+                            <div class="flex ml-[-40px] mt-[10px]">
+                            <img src="{{ asset('/images/Symbol.png') }}" alt="Quote" class="w-5 h-5 mb-4"> <p class="ml-[16px] font-medium">Премиум Кофе Солюшнз</p>
+                            </div>
                         </div>
                     </div>
                     
                     <!-- Второй отзыв (без отступа) -->
-                    <div class="flex bg-white p-6 rounded-xl shadow-md transition-transform duration-300 hover:scale-105 relative">
-                        <img src="{{ asset('/images/Ava2.png') }}" alt="Аватарка" class="w-16 h-16 md:w-20 md:h-20 rounded-full absolute -left-8 md:-left-10 top-5">
+                    <div class="h-[162px] flex bg-white p-6 rounded-tr-[22px] rounded-br-[22px] rounded-bl-[22px] shadow-md transition-transform duration-300 hover:scale-105 relative">
+                        <img src="{{ asset('/images/Ava2.png') }}" alt="Аватарка" class="w-[91px] h-[91px] md:w-20 md:h-20 rounded-full absolute -left-8 md:-left-10 top-5">
                         <div class="flex-1 pl-5 md:pl-8">
-                            <img src="{{ asset('/images/Symbol.png') }}" alt="Quote" class="w-5 h-5 mb-4">
-                            <p class="text-gray-800 text-base leading-relaxed">Сегодня попробовали первый раз Ваши обеды. Всё очень вкусно буду продолжать! Спасибо!</p>
+                            <p class="text-gray-800 text-base leading-relaxed">Сегодня попробовали первый раз Ваши <br> обеды. Все очень вкусно! Будем продолжать) <br>Спасибо!</p>
+                            <div class="flex ml-[-40px] mt-[0px]">
+                            <img src="{{ asset('/images/Symbol.png') }}" alt="Quote" class="w-5 h-5 mb-4"> <p class="ml-[16px] font-medium">Байт-Эрг Мария</p>
+                            </div>
                         </div>
                     </div>
                     
                     <!-- Третий отзыв (с отступом) -->
-                    <div class="flex bg-white p-6 rounded-xl shadow-md transition-transform duration-300 hover:scale-105 relative ml-12 md:ml-16 z-10">
-                        <img src="{{ asset('/images/Ava3.png') }}" alt="Аватарка" class="w-16 h-16 md:w-20 md:h-20 rounded-full absolute -left-8 md:-left-10 top-5">
+                    <div class="h-[162px] flex bg-white p-6 rounded-tr-[22px] rounded-br-[22px] rounded-bl-[22px] shadow-md transition-transform duration-300 hover:scale-105 relative ml-12 md:ml-16 z-10">
+                        <img src="{{ asset('/images/Ava3.png') }}" alt="Аватарка" class="w-[91px] h-[91px] md:w-20 md:h-20 rounded-full absolute -left-8 md:-left-10 top-5">
                         <div class="flex-1 pl-5 md:pl-8">
-                            <img src="{{ asset('/images/Symbol.png') }}" alt="Quote" class="w-5 h-5 mb-4">
-                            <p class="text-gray-800 text-base leading-relaxed">Заказали задание за 3 дня: обеды на 9 человек. Всё вовремя, вкусно и успешно доставили. Обеды всем понравились!</p>
+                            <p class="text-gray-800 text-base leading-relaxed">Заказали задание за 3 дня: обеды на 9 человек. Всё вовремя, вкусно и успешно доставили. Обеды всем понравились!</p> 
+                            <div class="flex ml-[-40px] mt-[10px]">
+                            <img src="{{ asset('/images/Symbol.png') }}" alt="Quote" class="w-5 h-5 mb-4"> <p class="ml-[16px] font-medium">Ирина Леонтьева</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -50,10 +56,10 @@
         </div>
         
         <!-- Футер с призывом -->
-        <div class="bg-cover bg-center min-h-[350px] py-12 md:py-16 px-4 pb-24 text-white text-center mt-12 relative" style="background-image: url('images/Bg2.png')">
-            <h3 class="text-2xl md:text-3xl mb-5">Хотите поделиться своим<br>впечатлением?</h3>
-            <p class="text-lg md:text-xl mb-8">Мы всегда уважаем мнения наших покупателей. Будь у вас есть<br class="hidden md:block">пожелания или предложения, пожалуйста, напишите нам о них!</p>
-            <button class="bg-white text-gray-800 border-none py-3 px-8 text-base rounded-md cursor-pointer transition-transform duration-300 hover:scale-105">Оставить отзыв</button>
+        <div class="bg-cover bg-center h-[530px] py-12 md:py-16 px-4 pb-24 text-white text-center mt-[-150px] relative" style="background-image: url('images/Bg2.png')">
+            <h3 class="text-2xl md:text-3xl mt-[98px] font-bold">Хотите поделиться своим<br>впечатлением?</h3>
+            <p class="text-lg mb-8 font-normal" >Мы всегда уважаем мнения наших покупателей. Будь у вас есть<br class="hidden md:block">пожелания или предложения, пожалуйста, напишите нам о них!</p>
+            <button class="bg-white w-[230px] text-[#82bc00] border-none py-3 px-8 text-base  cursor-pointer transition-transform duration-300 hover:scale-105 rounded-tr-[24px] rounded-br-[24px] rounded-bl-[24px]">Оставить отзыв</button>
         </div>
     </section>
 </body>
