@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="m-0 p-0 font-sans">
-    <div class="min-h-screen flex flex-col bg-cover bg-center" style="background-image: url('img/Bg.png')">
+    <div class="min-h-screen flex flex-col bg-cover bg-center" style="background-image: url('images/Bg.png')">
         <div class="max-w-7xl w-full mx-auto px-4 md:px-8 pt-10 flex flex-col min-h-screen">
             <!-- Заголовок -->
             <div class="bg-transparent mb-5 max-w-2xl">
@@ -67,7 +67,7 @@
                     <div class="flex border border-white/30 pl-4 min-w-[300px] md:min-w-[400px]">
                         <input type="text" placeholder="Поиск..." class="bg-transparent border-none py-2 text-xl text-white outline-none flex-1 placeholder:text-white/80">
                         <button class="bg-none border-none cursor-pointer">
-                            <img src="img/search.png" alt="search" class="w-5 h-5 m-1.5">
+                            <img src="{{ asset('/images/search.png') }}" alt="search" class="w-5 h-5 m-1.5">
                         </button>
                     </div>
                 </div>
@@ -75,15 +75,15 @@
                 <!-- Средняя часть подвала -->
                 <div class="flex flex-wrap items-center justify-between gap-6 mb-4">
                     <div class="text-xl font-medium text-white drop-shadow-md flex items-center gap-2">
-                        <img src="img/Vector.png" alt="local"> Челябинск, ул. Центральная (Шершни), д. 10
+                    <img src="{{ asset('/images/Vector.png') }}" alt="local" class=""> Челябинск, ул. Центральная (Шершни), д. 10
                     </div>
                     
                     <div class="flex flex-wrap gap-8 md:gap-20">
-                        <a href="mailto:zakaz@foodilike.ru" class="text-white no-underline text-xl flex items-center gap-2">
-                            <img src="img/Letter.png" alt="Letter"> zakaz@foodilike.ru
+                        <a href="mailto:zakaz@foodilike.ru" class="text-white no-underline text-xl flex items-center gap-2"> 
+                            <img src="{{ asset('/images/Letter.png') }}" alt="Letter" class="">zakaz@foodilike.ru
                         </a>
                         <a href="tel:+73512330601" class="text-white no-underline text-xl flex items-center gap-2">
-                            <img src="img/tel.png" alt="tel"> +7 351 233-06-01
+                            <img src="{{ asset('/images/tel.png') }}" alt="tel" class=""> +7 351 233-06-01
                         </a>
                     </div>
                     
@@ -97,7 +97,7 @@
                 <div class="flex flex-wrap justify-between items-center text-[#777E89] text-xl drop-shadow-md">
                     <div>© 2019 Universe, Все права защищены</div>
                     <div class="flex">
-                        <img src="img/INTEC.png" alt="INTEC logo">
+                        <img src="{{ asset('/images/INTEC.png') }}" alt="INTEC logo" class="">
                     </div>
                 </div>
             </div>
