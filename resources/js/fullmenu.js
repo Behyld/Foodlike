@@ -1,12 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-        // Элементы
         const cards = document.querySelectorAll('.card');
         const leftBtn = document.getElementById('sliderLeftChangeMenuButton');
         const rightBtn = document.getElementById('sliderRightChangeMenuButton');
         const menuItems = document.querySelectorAll('.menu-item');
         let activeCardIndex = 0;
 
-        // Верхнее меню
         function activateMenuItem(activeItem) {
             menuItems.forEach(item => {
                 item.classList.remove('active', 'font-bold');

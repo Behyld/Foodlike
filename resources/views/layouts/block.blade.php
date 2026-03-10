@@ -3,19 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Документ</title>
+    <title>Блок с каруселью</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .slider-btn.disabled {
-            opacity: 0.5;
-            pointer-events: none;
-        }
-        #innerSlider {
-            transition: transform 0.3s ease-in-out;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/global.css') }}">
 </head>
-<body>
+<body class="bg-[#fbf8f8] text-black">
+    <!-- Основной контент -->
     <div class="mainCont ml-[360px] w-[470px]">
         <img src="{{ asset('/images/geo.png') }}" alt="гео">
         <h2 class="text-[55px] font-semibold">Доставка обедов в офис</h2>

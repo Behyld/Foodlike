@@ -52,12 +52,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     allCards.forEach(card => innerSlider.appendChild(card));
 
-    // Дожидаемся отрисовки, чтобы получить реальные размеры
     requestAnimationFrame(() => {
         const card = allCards[0];
-        const cardWidth = card.offsetWidth;          // теперь должно быть 380
+        const cardWidth = card.offsetWidth;         
         const gap = parseFloat(getComputedStyle(innerSlider).gap) || 16;
-        const slideWidth = cardWidth + gap;          // правильное значение (380 + 16 = 396)
+        const slideWidth = cardWidth + gap;       
 
         let currentIndex = visibleCount;
         const maxIndex = allCards.length - visibleCount;

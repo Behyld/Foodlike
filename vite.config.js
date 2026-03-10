@@ -8,7 +8,8 @@ export default defineConfig({
                  'resources/js/app.js', 
                  'resources/js/fullmenu.js',
                 'resources/js/block.js',
-                'resources/js/menu.js'
+                'resources/js/menu.js',
+                'resources/js/howorder.js'
                 ],
             refresh: true,
         }),
