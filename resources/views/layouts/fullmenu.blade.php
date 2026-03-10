@@ -86,10 +86,10 @@
         </div>
 
      <img src="{{ asset('/images/leftButton.png') }}" alt="левая стрелка" 
-     id="sliderLeftChangeFullMenuButton"
+     id="sliderLeftChangeMenuButton"
      class="slider-arrow inline-block dish-left-arrow mt-[69px] cursor-pointer relative z-50">
 <img src="{{ asset('/images/rightButton.png') }}" alt="правая стрелка" 
-     id="sliderRightChangeFullMenuButton"
+     id="sliderRightChangeMenuButton"
      class="slider-arrow inline-block ml-2 dish-right-arrow mt-[69px] cursor-pointer relative z-50">
         <p class="absolute ml-[1200px] mt-[-30px] font-medium">Наше меню    ></p>
     </div>

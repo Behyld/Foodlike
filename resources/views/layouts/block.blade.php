@@ -30,8 +30,8 @@
 
     <!-- Кнопки управления -->
     <div class="w-[1200px] flex justify-end gap-2 mt-4">
-        <img src="{{ asset('/images/leftButton.png') }}" alt="левая стрелка" id="slideLeftBtn" class="slider-btn cursor-pointer">
-        <img src="{{ asset('/images/rightButton.png') }}" alt="правая стрелка" id="slideRightBtn" class="slider-btn cursor-pointer">
+        <img src="{{ asset('/images/leftButton.png') }}" alt="левая стрелка" id="slideLeftCardBtn" class="slider-btn cursor-pointer">
+        <img src="{{ asset('/images/rightButton.png') }}" alt="правая стрелка" id="slideRightCardBtn" class="slider-btn cursor-pointer">
     </div>
 
     @vite('resources/js/block.js')

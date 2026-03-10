@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="bg-[#FBF1EB] w-full h-[1000px] absolute">
+    <div class="bg-[#FBF1EB] w-full h-[670px] absolute">
         <img src="{{ asset('/images/group.png') }}" alt="блюдо" class="absolute object-cover w-[644px] h-[692px] ml-[1000px] mt-[-100px]">
     <div class="mt-[150px] ml-[360px] ">
         <h4 class=" font-bold text-[30px]">О компании</h4>

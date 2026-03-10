@@ -15,6 +15,8 @@
              @include('layouts.menu')
              @include('layouts.fullmenu')
              @include('layouts.about')
+             @include('layouts.order')
+             @include('layouts.howorder')
             </div>
         </main>
 </body>

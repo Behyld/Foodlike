@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
         // Элементы
         const cards = document.querySelectorAll('.card');
-        const leftBtn = document.getElementById('sliderLeftChangeFullMenuButton');
-        const rightBtn = document.getElementById('sliderRightChangeFullMenuButton');
+        const leftBtn = document.getElementById('sliderLeftChangeMenuButton');
+        const rightBtn = document.getElementById('sliderRightChangeMenuButton');
         const menuItems = document.querySelectorAll('.menu-item');
         let activeCardIndex = 0;
 
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Карточки
-        function activateCard(index) {
+        function activateMenuCard(index) {
             cards.forEach((card, i) => {
                 const arrow = card.querySelector('.card-arrow');
                 const textBlock = card.querySelector('.card-text-block');
@@ -37,33 +37,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         cards.forEach((card, i) => {
-            card.addEventListener('click', () => activateCard(i));
+            card.addEventListener('click', () => activateMenuCard(i));
         });
 
         // Кнопки переключения
         if (leftBtn) {
             leftBtn.addEventListener('click', function() {
                 let newIndex = (activeCardIndex - 1 + cards.length) % cards.length;
-                activateCard(newIndex);
+                activateMenuCard(newIndex);
             });
-        } else {
-            console.warn('Левая кнопка с ID sliderLeftChangeFullMenuButton не найдена');
         }
-
         if (rightBtn) {
             rightBtn.addEventListener('click', function() {
                 let newIndex = (activeCardIndex + 1) % cards.length;
-                activateCard(newIndex);
+                activateMenuCard(newIndex);
             });
-        } else {
-            console.warn('Правая кнопка с ID sliderRightChangeFullMenuButton не найдена');
-        }
-
+        } 
         // Инициализация
         if (menuItems.length > 0) {
             activateMenuItem(menuItems[0]);
         }
         if (cards.length > 0) {
-            activateCard(0);
+            activateMenuCard(0);
         }
     });
