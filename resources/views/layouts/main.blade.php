@@ -17,6 +17,9 @@
              @include('layouts.about')
              @include('layouts.order')
              @include('layouts.howorder')
+             @include('layouts.review')
+             @include('layouts.articles')
+             @include('layouts.footer')
             </div>
         </main>
 </body>
