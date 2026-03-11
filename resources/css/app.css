@@ -71,3 +71,10 @@ footer {
 .order-card.selected .more-link {
     opacity: 1;
 }
+
+
+@media (max-width: 425px) {
+.backBlockImgFirst{
+    background-image: url('/images/bgmedia.png');
+}
+}

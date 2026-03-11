@@ -52,7 +52,7 @@
             </div>
             
             <!-- Подвал -->
-            <div class="bg-black/30 backdrop-blur-md w-[1900px] ml-[calc(-50vw+50%)] px-4 md:px-16 lg:px-32 py-4 pb-8 text-white mt-auto">
+            <div class="bg-black/30 backdrop-blur-md w-[99vw] ml-[calc(-50vw+50%)] px-4 md:px-16 lg:px-32 py-4 pb-8 text-white mt-auto">
                 <!-- Верхняя часть подвала -->
                 <div class="flex flex-wrap justify-between items-center gap-8 mb-5">
                     <div class="flex flex-wrap gap-8 md:gap-10">

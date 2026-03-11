@@ -1,0 +1,23 @@
+.burger-line {
+            @apply w-full h-[4px] bg-[#ee7700] transition-all duration-300 rounded-sm;
+        }
+
+        @media (max-width: 425px) {
+            .burger-line {
+                @apply h-[5px] rounded-[3px];
+            }
+        }
+
+        @media (max-width: 375px) {
+            .burger-line {
+                @apply h-[4px];
+            }
+        }
+
+        .mobile-nav {
+            display: none;
+        }
+
+        .mobile-nav.active {
+            @apply flex;
+        }
