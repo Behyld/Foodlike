@@ -31,7 +31,7 @@
                    class="block w-full h-[50px] pl-[15px] pr-3 border-none rounded-[5px] focus:outline-none focus:ring-2 focus:ring-orange-500">
         </div>
 
-        <button class="mt-[33px] bg-[#EE7700] w-[208px] h-[48px] text-white rounded-tr-[24px] rounded-br-[24px] rounded-bl-[24px]">Отправить</button>
+        <button class="mt-[33px] bg-[#EE7700] w-[208px] h-[48px] text-white rounded-tr-[24px] rounded-br-[24px] rounded-bl-[24px] hover:bg-[#e86100]">Отправить</button>
 
         <p class="mt-[25px] font-medium">Нажимая кнопку Вы подтверждаете <br>
             обработку <span class="font-bold underline">Персональных данных</span></p>

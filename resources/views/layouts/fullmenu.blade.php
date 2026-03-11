@@ -28,7 +28,7 @@
                 <div class="absolute top-0 left-0 w-[277px] h-[277px] z-10">
                     <img src="{{ asset('/images/teriyakiChicken.png') }}" alt="блюдо" class="w-full h-full object-cover">
                     <img src="{{ asset('/images/rightWhiteButton.png') }}" alt="arrow" 
-                         class="absolute left-[40px] top-[230px] -translate-y-1/2 w-[45px] h-[45px] z-20 opacity-0 card-arrow">
+                         class="absolute left-[40px] top-[230px] -translate-y-1/2 w-[45px] h-[45px] z-20 opacity-0 card-arrow transition-all duration-300 hover:opacity-80 hover:scale-110 cursor-pointer">
                 </div>
                 <div class="w-full transition-colors duration-200 flex flex-col items-center justify-center rounded-tr-[49px] rounded-br-[49px] rounded-bl-[49px] mt-[170px] min-h-[220px] card-text-block">
                     <p class="font-medium mt-[80px]">Курица в соусе <br> терияки</p>
@@ -41,7 +41,7 @@
                 <div class="absolute top-0 left-0 w-[277px] h-[277px] z-10">
                     <img src="{{ asset('/images/pumpkinCreamSoup.png') }}" alt="блюдо" class="w-full h-full object-cover">
                     <img src="{{ asset('/images/rightWhiteButton.png') }}" alt="arrow" 
-                         class="absolute left-[40px] top-[230px] -translate-y-1/2 w-[45px] h-[45px] z-20 opacity-0 card-arrow">
+                         class="absolute left-[40px] top-[230px] -translate-y-1/2 w-[45px] h-[45px] z-20 opacity-0 card-arrow transition-all duration-300 hover:opacity-80 hover:scale-110 cursor-pointer">
                 </div>
                 <div class="w-full transition-colors duration-200 flex flex-col items-center justify-center rounded-tr-[49px] rounded-br-[49px] rounded-bl-[49px] mt-[170px] min-h-[220px] card-text-block">
                     <p class="font-medium mt-[80px]">Тыквенный <br> крем-суп</p>
@@ -54,7 +54,7 @@
                 <div class="absolute top-0 left-0 w-[277px] h-[277px] z-10">
                     <img src="{{ asset('/images/salad.png') }}" alt="блюдо" class="w-full h-full object-cover">
                     <img src="{{ asset('/images/rightWhiteButton.png') }}" alt="arrow" 
-                         class="absolute left-[40px] top-[230px] -translate-y-1/2 w-[45px] h-[45px] z-20 opacity-0 card-arrow">
+                         class="absolute left-[40px] top-[230px] -translate-y-1/2 w-[45px] h-[45px] z-20 opacity-0 card-arrow transition-all duration-300 hover:opacity-80 hover:scale-110 cursor-pointer">
                 </div>
                 <div class="w-full transition-colors duration-200 flex flex-col items-center justify-center rounded-tr-[49px] rounded-br-[49px] rounded-bl-[49px] mt-[170px] min-h-[220px] card-text-block">
                     <p class="font-medium mt-[80px]">Салат <br> летний</p>
@@ -67,7 +67,7 @@
                 <div class="absolute top-0 left-0 w-[277px] h-[277px] z-10">
                     <img src="{{ asset('/images/blyudo.png') }}" alt="блюдо" class="w-full h-full object-cover">
                     <img src="{{ asset('/images/rightWhiteButton.png') }}" alt="arrow" 
-                         class="absolute left-[40px] top-[230px] -translate-y-1/2 w-[45px] h-[45px] z-20 opacity-0 card-arrow">
+                         class="absolute left-[40px] top-[230px] -translate-y-1/2 w-[45px] h-[45px] z-20 opacity-0 card-arrow transition-all duration-300 hover:opacity-80 hover:scale-110 cursor-pointer">
                 </div>
                 <div class="w-full transition-colors duration-200 flex flex-col items-center justify-center rounded-tr-[49px] rounded-br-[49px] rounded-bl-[49px] mt-[170px] min-h-[220px] card-text-block">
                     <p class="font-medium mt-[80px]">Салат <br> коул-слоу</p>
@@ -79,11 +79,11 @@
         <!-- Кнопки управления слайдером -->
         <img src="{{ asset('/images/leftButton.png') }}" alt="левая стрелка" 
              id="sliderLeftChangeMenuButton"
-             class="slider-arrow inline-block dish-left-arrow mt-[69px] cursor-pointer relative z-50">
+             class="slider-arrow inline-block dish-left-arrow mt-[69px] cursor-pointer relative z-50 transition-all duration-300 hover:opacity-50 hover:scale-110">
         <img src="{{ asset('/images/rightButton.png') }}" alt="правая стрелка" 
              id="sliderRightChangeMenuButton"
-             class="slider-arrow inline-block ml-2 dish-right-arrow mt-[69px] cursor-pointer relative z-50">
-        <p class="absolute ml-[1200px] mt-[-30px] font-medium">Наше меню    ></p>
+             class="slider-arrow inline-block ml-2 dish-right-arrow mt-[69px] cursor-pointer relative z-50 transition-all duration-300 hover:opacity-50 hover:scale-110">
+        <p class="absolute ml-[1200px] mt-[-30px] font-medium transition-all duration-300 hover:text-[#ee7700] hover:translate-x-1 cursor-pointer">Наше меню    ></p>
     </div>
 
     @vite('resources/js/fullmenu.js')

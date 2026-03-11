@@ -12,7 +12,7 @@
         <h4 class=" font-bold text-[30px]">О компании</h4>
         <p class="w-[450px] mt-[24px]">Если ежедневные размышления о том, где и как пообедать, постоянно отвлекают вас и ваших сотрудников от ваших дел, тогда мы идем к вам!
 Для каждой компании меню по доставке обедов подбирается индивидуально, исходя из ваших предпочтений. Служба доставки обедов «FoodILike» имеет всю разрешительную документацию и сертификаты.</p>
-        <button class="mt-[33px] bg-[#EE7700] w-[208px] h-[48px] text-white rounded-tr-[24px] rounded-br-[24px] rounded-bl-[24px]">Подробнее</button>
+        <button class="mt-[33px] bg-[#EE7700] w-[208px] h-[48px] text-white rounded-tr-[24px] rounded-br-[24px] rounded-bl-[24px] hover:bg-[#e86100]">Подробнее</button>
     </div>
     </div>
 </body>

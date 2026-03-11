@@ -9,7 +9,8 @@ export default defineConfig({
                  'resources/js/fullmenu.js',
                 'resources/js/block.js',
                 'resources/js/menu.js',
-                'resources/js/howorder.js'
+                'resources/js/howorder.js',
+                'resources/js/review.js'
                 ],
             refresh: true,
         }),

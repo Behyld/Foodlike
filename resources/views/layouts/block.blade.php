@@ -13,7 +13,9 @@
         <img src="{{ asset('/images/geo.png') }}" alt="гео">
         <h2 class="text-[55px] font-semibold">Доставка обедов в офис</h2>
         <p class="text-base">Для каждой компании меню по доставке обедов подбирается индивидуально, исходя из ваших вкусов и предпочтений.</p>
-        <button class="bg-[#ff8d28] text-white rounded-tr-[24px] rounded-br-[24px] rounded-bl-[24px] w-[213px] h-[46px] mt-[36px] hover:opacity-90 transition">Наше меню</button>
+        <button class="bg-[#ff8d28] text-white rounded-tr-[24px] rounded-br-[24px] rounded-bl-[24px] w-[213px] h-[46px] mt-[36px] hover:opacity-90 transition duration-300 hover:bg-[#e86100]">
+            Наше меню
+        </button>
     </div>
 
     <!-- Контейнер карусели -->
@@ -21,10 +23,14 @@
         <div id="innerSlider" class="flex gap-4"></div>
     </div>
 
-    <!-- Кнопки управления -->
+    <!-- Кнопки управления с затемнением -->
     <div class="w-[1200px] flex justify-end gap-2 mt-4">
-        <img src="{{ asset('/images/leftButton.png') }}" alt="левая стрелка" id="slideLeftCardBtn" class="slider-btn cursor-pointer">
-        <img src="{{ asset('/images/rightButton.png') }}" alt="правая стрелка" id="slideRightCardBtn" class="slider-btn cursor-pointer">
+        <img src="{{ asset('/images/leftButton.png') }}" alt="левая стрелка" 
+             id="slideLeftCardBtn" 
+             class="slider-btn cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105">
+        <img src="{{ asset('/images/rightButton.png') }}" alt="правая стрелка" 
+             id="slideRightCardBtn" 
+             class="slider-btn cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105">
     </div>
 
     @vite('resources/js/block.js')
